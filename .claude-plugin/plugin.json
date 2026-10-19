@@ -1,0 +1,14 @@
+{
+  "name": "game-dev-skills",
+  "displayName": "Game Dev Skills",
+  "version": "0.1.0",
+  "description": "Engine-agnostic agent skills for game development: plan, implement, debug, review, test and optimize games in Godot, Unity, Unreal or custom engines.",
+  "author": {
+    "name": "Thiago Lopes",
+    "url": "https://github.com/ThiagoFdaSLopes"
+  },
+  "homepage": "https://github.com/ThiagoFdaSLopes/game-dev-skills",
+  "repository": "https://github.com/ThiagoFdaSLopes/game-dev-skills",
+  "license": "MIT",
+  "keywords": ["gamedev", "game-development", "godot", "unity", "unreal", "agent-skills", "skills"]
+}

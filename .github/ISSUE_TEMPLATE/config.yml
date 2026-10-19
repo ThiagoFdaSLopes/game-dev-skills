@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Questions and discussion
+    url: https://github.com/ThiagoFdaSLopes/game-dev-skills/discussions
+    about: Ask how to use the skills or share how you use them.
+  - name: Security issue
+    url: https://github.com/ThiagoFdaSLopes/game-dev-skills/security/advisories/new
+    about: Report privately, not in a public issue.

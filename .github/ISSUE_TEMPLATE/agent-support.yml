@@ -1,0 +1,29 @@
+name: Agent support
+description: Report how the skills work (or not) in an agent - Gemini CLI, Cursor, OpenCode, Copilot...
+labels: ["agent-support"]
+body:
+  - type: input
+    id: agent
+    attributes:
+      label: Agent and version
+    validations:
+      required: true
+  - type: textarea
+    id: install
+    attributes:
+      label: How you installed the skills
+      placeholder: "npx skills add ... -a cursor / copied into ~/.gemini/skills / ..."
+    validations:
+      required: true
+  - type: dropdown
+    id: result
+    attributes:
+      label: Result
+      options: ["works", "works with caveats", "does not work"]
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: Did skills trigger on their own? Could the agent read the references/ files? Anything you had to change?

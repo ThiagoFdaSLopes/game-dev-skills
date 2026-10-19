@@ -1,0 +1,17 @@
+{
+  "name": "game-dev-skills",
+  "owner": {
+    "name": "Thiago Lopes",
+    "url": "https://github.com/ThiagoFdaSLopes"
+  },
+  "description": "Game development skills for Claude Code and other agents.",
+  "plugins": [
+    {
+      "name": "game-dev-skills",
+      "source": ".",
+      "description": "Engine-agnostic agent skills for game development: plan, implement, debug, review, test and optimize.",
+      "category": "development",
+      "tags": ["gamedev", "godot", "unity", "unreal"]
+    }
+  ]
+}
