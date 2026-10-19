@@ -5,6 +5,7 @@
       "release-type": "node",
       "package-name": "game-dev-skills",
       "bump-minor-pre-major": true,
+      "initial-version": "0.1.0",
       "include-component-in-tag": false,
       "extra-files": [
         { "type": "json", "path": ".claude-plugin/plugin.json", "jsonpath": "$.version" }
