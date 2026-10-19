@@ -58,6 +58,12 @@ Which behaviour is defined in simulated time (rules tested with time passed as a
 
 *Default:* game rules take time as a parameter and are tested with simulated time and seeded random; nothing relies on frame count.
 
+### First-use check
+
+A short path a new player takes through the real build (not through tests), and what must hold at each step: what stays on screen, what updates, what never appears. It catches what green state tests miss - the right state behind the wrong experience, such as a panel covering a view that should stay visible. Every run is recorded with the date, who or what ran it (a person, or the agent and its exact model), the tools it had (browser automation, screenshots, a device) and what was seen.
+
+*Default:* none. When a task changes what a new player sees in the first minutes and no first-use check exists, propose one as a manual check; until someone runs it, the experience is a named gap, whatever the state tests say.
+
 ### Conventions
 
 Code style, naming, comment language, architecture rules (server authority, folder layout, logging), and anything a review must enforce.

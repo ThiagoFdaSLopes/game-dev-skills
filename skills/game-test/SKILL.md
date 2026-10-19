@@ -12,7 +12,7 @@ Read before starting: `references/principles.md`, `references/project-profile.md
 
 ## Process
 
-0. **Target** - when the work belongs to a milestone or a ticket, start from its completion criteria and from the limits and metrics in the technical docs. Each criterion becomes a behaviour to check, or a named gap.
+0. **Target** - when the work belongs to a milestone or a ticket, start from its completion criteria and from the limits and metrics in the technical docs. Each criterion becomes a behaviour to check, or a named gap. When the work changes what a new player sees first, the first-use path (`profile: First-use check`) is part of the target: run it in the real build if the tools here allow it (browser automation, screenshots), otherwise hand it to the user as a checklist.
 1. **Behaviour** - state the behaviour under test and its edge cases: failure paths, state transitions, serialization round-trips, input edge cases (held, repeated, simultaneous), platform cases (frame rate, resolution, controller vs keyboard), and netcode cases (latency, loss, authority) when relevant.
 2. **Pick the layer** - from the project's existing checks (`verified`; `profile: Checks`), not from preference:
    - *unit* for pure rules (damage formulas, state machines, economy math)
@@ -39,6 +39,7 @@ Stop/Go:   go if <= 1 unfair death per 5 min; otherwise rework telegraphs
 Tests:         added/changed files, one line each
 Commands:      exactly what was run
 Results:       pass/fail counts and notable output, or "could not run: <reason>"
+First use:     date, person or agent + exact model, tools, pass/fail and what was seen; or "not run: <reason>"
 Gaps:          behaviours still untested; checks that need a device/engine/person
 ```
 
@@ -46,4 +47,5 @@ Gaps:          behaviours still untested; checks that need a device/engine/perso
 
 - show test output that did not come from a tool run
 - call a playtest done when it was only planned
+- call the first-use check passed because the state tests pass
 - test the implementation's internals when a behaviour test exists

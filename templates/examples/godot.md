@@ -22,6 +22,12 @@ Platforms: PC, web
 - A script run that fails to compile does not exit: always wrap `--script` runs in `timeout`.
 - Web export (slow, only when export settings change): `godot --headless --export-release web build/web/index.html`
 
+## First-use check
+
+- Path: new game from the main menu; plant one crop; skip to the next day.
+- Must hold: the farm view stays on screen the whole time (no menu covers it); the crop appears on its tile and grows after the skip; the coin count changes once.
+- Last run: 2026-10-12, Claude Code with claude-opus-5-5, browser automation on the web export, pass - farm view stayed visible, crop grew after the skip.
+
 ## Conventions
 
 - Static typing everywhere; `snake_case` files, `PascalCase` classes.
