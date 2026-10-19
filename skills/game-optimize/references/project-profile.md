@@ -58,6 +58,12 @@ Which behaviour is defined in simulated time (rules tested with time passed as a
 
 *Default:* game rules take time as a parameter and are tested with simulated time and seeded random; nothing relies on frame count.
 
+### First-use check
+
+A short path a new player takes through the real build (not through tests), and what must hold at each step: what stays on screen, what updates, what never appears. It catches what green state tests miss - the right state behind the wrong experience, such as a panel covering a view that should stay visible. A run uses a build that contains the change under test and checks every `Must hold` condition; one left unchecked means the run is not a pass. Every run is appended to the profile's `Runs` list, newest first, never overwriting earlier runs, with the date, who or what ran it (a person, or the agent and its exact model), the tools it had (browser automation, screenshots, a device), the build used and what was seen for each condition.
+
+*Default:* none. When a task changes what a new player sees in the first minutes and no first-use check exists, propose one as a manual check. `game-plan` puts it in the definition of done, `game-implement` and `game-test` run it, and `game-review` flags a change that has neither a run nor a named gap. Until someone runs it, the experience is a named gap, whatever the state tests say.
+
 ### Conventions
 
 Code style, naming, comment language, architecture rules (server authority, folder layout, logging), and anything a review must enforce.

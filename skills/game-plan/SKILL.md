@@ -58,7 +58,7 @@ Plain markdown, short sections, in this order:
 4. **Vertical slice and backlog** - Now / Later / Cut, content implications, explicit exclusions, milestone order
 5. **Top risks and experiments** - failure mode, evidence, impact, mitigation, cheapest test, stop/go criteria
 6. **Implementation outline** - engine-specific modules/scenes/services, state ownership, interfaces, data/assets, save/network strategy, folder structure if justified
-7. **Definition of done** - observable feel, usability, functionality, tests, *proposed* profiling targets (never measured ones)
+7. **Definition of done** - observable feel, usability, functionality, tests, the first-use path and what must hold when the slice changes what a new player sees first (`profile: First-use check`), *proposed* profiling targets (never measured ones)
 8. **Verdict** - `Go / Conditional Go / No-Go`, with evidence and caveats; advisory, not a veto
 
 ## Never

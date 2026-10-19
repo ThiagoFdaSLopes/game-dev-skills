@@ -43,7 +43,7 @@ No input of any kind that defines a done state means the task belongs to `game-p
 
 5. **Check as you go** - after every slice, run the fast checks (parse or type check, the single test you are working in) from `profile: Checks`, with a timeout when a run can hang. Paste real output only. A failure that is not the one you expected moves the work to `game-debug`; say so in one line, fix it there, come back.
 
-6. **Finish** - run every check that covers the change, once, including the slow ones the profile lists for this kind of change (network, backend, exports). Name each check not run and why. Then compare the result against the acceptance criteria line by line: met, partially met, not met.
+6. **Finish** - run every check that covers the change, once, including the slow ones the profile lists for this kind of change (network, backend, exports). Name each check not run and why. When the change alters what a new player sees in the first minutes, run the first-use step of `game-test` (step 5) against the finished build; when it cannot run here, it is a named gap in Open risks and in the PR body. Then compare the result against the acceptance criteria line by line: met, partially met, not met.
 
 7. **Review** - hand the diff to `game-review` (read-only, against the fixed point where this work started), in a subagent when the runtime offers one, so only the findings come back. Fix `HIGH` and `MED` findings in this same task; list `LOW` ones in Open risks unless trivial. This is where refactoring happens, with the tests as the net.
 
@@ -69,6 +69,7 @@ Risk:  overlaps with coyote-time window  [needs validation]
 Result:        files changed + behaviour added, one line each
 Criteria:      each acceptance line -> met / partial / not met
 Verification:  commands run and what they showed (or "nothing runnable here")
+First use:     run recorded in the profile, or "not run: <reason>", or "not affected"
 Review:        findings fixed / deferred
 Commit:        branch, hash + message, or "not committed: <reason>"
 PR:            URL and linked issue, or "not opened: <reason>"

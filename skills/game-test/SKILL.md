@@ -21,7 +21,13 @@ Read before starting: `references/principles.md`, `references/project-profile.md
    - *manual / playtest* for feel, readability and fun - give an observation checklist, not opinions
 3. **Write** tests in the project's conventions: same framework, folder, naming and exit behaviour as the existing checks, and register the new check wherever the project lists its commands. Keep each check to one behaviour. Rule checks use simulated time and seeded random; behaviour the project defines in real time keeps its real-time checks (`profile: Time in tests`).
 4. **Run** what can run here, with a timeout when a run can hang. Paste the exact command and the real output. A check that needs a service, a device or a credential you do not have is a named gap, not a pass.
-5. **Report** gaps honestly.
+5. **First use** - whenever the work changes what a new player sees in the first minutes, with or without a milestone or ticket, run the first-use path (`profile: First-use check`) after step 4:
+   - Run it against a build that contains the change. When the path runs on an export or a packaged build, rebuild it first, even if the profile calls that build slow or only needed when its settings change.
+   - Check every `Must hold` condition and record each one as held, failed or not checked. A run with any condition not checked is not a pass.
+   - Use the tools available here (browser automation, screenshots). Without them, hand the path to the user as a checklist; until someone runs it, it is a named gap.
+   - Append the run to `Runs` in the project profile, newest first; never replace or delete earlier runs.
+   - No first-use check in the profile: propose one (path and what must hold) and treat the experience as a named gap.
+6. **Report** gaps honestly.
 
 ## Playtest plan format
 
@@ -39,6 +45,7 @@ Stop/Go:   go if <= 1 unfair death per 5 min; otherwise rework telegraphs
 Tests:         added/changed files, one line each
 Commands:      exactly what was run
 Results:       pass/fail counts and notable output, or "could not run: <reason>"
+First use:     date, person or agent + exact model, tools, build used, each Must hold condition held/failed/not checked; or "not run: <reason>"
 Gaps:          behaviours still untested; checks that need a device/engine/person
 ```
 
@@ -46,4 +53,6 @@ Gaps:          behaviours still untested; checks that need a device/engine/perso
 
 - show test output that did not come from a tool run
 - call a playtest done when it was only planned
+- call the first-use check passed because the state tests pass, or with a `Must hold` condition left unchecked
+- run the first-use path on a build that predates the change
 - test the implementation's internals when a behaviour test exists
