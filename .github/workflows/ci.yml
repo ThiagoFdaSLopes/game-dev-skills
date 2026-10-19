@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Shared files in sync, skills and manifests valid
+        run: npm run check
+      - name: Claude Code plugin validation
+        run: |
+          npx --yes @anthropic-ai/claude-code plugin validate . --strict
+          npx --yes @anthropic-ai/claude-code plugin validate ./.claude-plugin/plugin.json --strict

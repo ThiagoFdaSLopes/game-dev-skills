@@ -1,0 +1,47 @@
+name: Skill behaviour
+description: A skill did something wrong, skipped a step, or did not trigger.
+labels: ["bug"]
+body:
+  - type: dropdown
+    id: skill
+    attributes:
+      label: Skill
+      options: [game-dev-questline, game-plan, game-implement, game-debug, game-review, game-test, game-optimize, shared rules, not sure]
+    validations:
+      required: true
+  - type: input
+    id: agent
+    attributes:
+      label: Agent, version and model
+      placeholder: "Claude Code 2.1.300, Opus 5.5 / Codex 0.x, gpt-..."
+    validations:
+      required: true
+  - type: input
+    id: engine
+    attributes:
+      label: Engine
+      placeholder: "Godot 4.5 / Unity 6 / Unreal 5.6 / custom"
+  - type: dropdown
+    id: profile
+    attributes:
+      label: Does the repository have a project profile (.game-dev/project.md)?
+      options: ["yes", "no"]
+  - type: textarea
+    id: asked
+    attributes:
+      label: What you asked
+    validations:
+      required: true
+  - type: textarea
+    id: happened
+    attributes:
+      label: What the agent did
+      description: A transcript excerpt helps more than a summary. Remove secrets and private code.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+    validations:
+      required: true
