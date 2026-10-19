@@ -1,7 +1,7 @@
 {
   "name": "game-dev-skills",
   "displayName": "Game Dev Skills",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Engine-agnostic agent skills for game development: plan, implement, debug, review, test and optimize games in Godot, Unity, Unreal or custom engines.",
   "author": {
     "name": "Thiago Lopes",
