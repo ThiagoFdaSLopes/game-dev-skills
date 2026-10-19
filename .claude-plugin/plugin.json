@@ -10,5 +10,13 @@
   "homepage": "https://github.com/ThiagoFdaSLopes/game-dev-skills",
   "repository": "https://github.com/ThiagoFdaSLopes/game-dev-skills",
   "license": "MIT",
-  "keywords": ["gamedev", "game-development", "godot", "unity", "unreal", "agent-skills", "skills"]
+  "keywords": [
+    "gamedev",
+    "game-development",
+    "godot",
+    "unity",
+    "unreal",
+    "agent-skills",
+    "skills"
+  ]
 }
