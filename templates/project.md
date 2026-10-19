@@ -69,12 +69,15 @@ Platforms: <PC, web, Android, consoles, dedicated server, ...>
 
 <!--
 A short path a new player takes in the real build, and what must hold at each
-step. Passing state tests do not replace it. Record every run.
+step. Passing state tests do not replace it. Run it on a build that contains
+the change and check every Must hold condition. Add one line per run to Runs,
+newest first; never replace or delete earlier runs.
 -->
 
 - Path: <start a new game; do the first core action; ...>
 - Must hold: <what stays on screen, what updates, what never appears>
-- Last run: <YYYY-MM-DD, person or agent + exact model, tools (browser automation, screenshots, device), pass/fail and what was seen>
+- Runs (newest first):
+  - <YYYY-MM-DD, person or agent + exact model, tools (browser automation, screenshots, device), build used, each Must hold condition held/failed/not checked>
 
 ## Conventions
 

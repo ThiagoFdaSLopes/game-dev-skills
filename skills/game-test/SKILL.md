@@ -12,7 +12,7 @@ Read before starting: `references/principles.md`, `references/project-profile.md
 
 ## Process
 
-0. **Target** - when the work belongs to a milestone or a ticket, start from its completion criteria and from the limits and metrics in the technical docs. Each criterion becomes a behaviour to check, or a named gap. When the work changes what a new player sees first, the first-use path (`profile: First-use check`) is part of the target: run it in the real build if the tools here allow it (browser automation, screenshots), otherwise hand it to the user as a checklist.
+0. **Target** - when the work belongs to a milestone or a ticket, start from its completion criteria and from the limits and metrics in the technical docs. Each criterion becomes a behaviour to check, or a named gap.
 1. **Behaviour** - state the behaviour under test and its edge cases: failure paths, state transitions, serialization round-trips, input edge cases (held, repeated, simultaneous), platform cases (frame rate, resolution, controller vs keyboard), and netcode cases (latency, loss, authority) when relevant.
 2. **Pick the layer** - from the project's existing checks (`verified`; `profile: Checks`), not from preference:
    - *unit* for pure rules (damage formulas, state machines, economy math)
@@ -21,7 +21,13 @@ Read before starting: `references/principles.md`, `references/project-profile.md
    - *manual / playtest* for feel, readability and fun - give an observation checklist, not opinions
 3. **Write** tests in the project's conventions: same framework, folder, naming and exit behaviour as the existing checks, and register the new check wherever the project lists its commands. Keep each check to one behaviour. Rule checks use simulated time and seeded random; behaviour the project defines in real time keeps its real-time checks (`profile: Time in tests`).
 4. **Run** what can run here, with a timeout when a run can hang. Paste the exact command and the real output. A check that needs a service, a device or a credential you do not have is a named gap, not a pass.
-5. **Report** gaps honestly.
+5. **First use** - whenever the work changes what a new player sees in the first minutes, with or without a milestone or ticket, run the first-use path (`profile: First-use check`) after step 4:
+   - Run it against a build that contains the change. When the path runs on an export or a packaged build, rebuild it first, even if the profile calls that build slow or only needed when its settings change.
+   - Check every `Must hold` condition and record each one as held, failed or not checked. A run with any condition not checked is not a pass.
+   - Use the tools available here (browser automation, screenshots). Without them, hand the path to the user as a checklist; until someone runs it, it is a named gap.
+   - Append the run to `Runs` in the project profile, newest first; never replace or delete earlier runs.
+   - No first-use check in the profile: propose one (path and what must hold) and treat the experience as a named gap.
+6. **Report** gaps honestly.
 
 ## Playtest plan format
 
@@ -39,7 +45,7 @@ Stop/Go:   go if <= 1 unfair death per 5 min; otherwise rework telegraphs
 Tests:         added/changed files, one line each
 Commands:      exactly what was run
 Results:       pass/fail counts and notable output, or "could not run: <reason>"
-First use:     date, person or agent + exact model, tools, pass/fail and what was seen; or "not run: <reason>"
+First use:     date, person or agent + exact model, tools, build used, each Must hold condition held/failed/not checked; or "not run: <reason>"
 Gaps:          behaviours still untested; checks that need a device/engine/person
 ```
 
@@ -47,5 +53,6 @@ Gaps:          behaviours still untested; checks that need a device/engine/perso
 
 - show test output that did not come from a tool run
 - call a playtest done when it was only planned
-- call the first-use check passed because the state tests pass
+- call the first-use check passed because the state tests pass, or with a `Must hold` condition left unchecked
+- run the first-use path on a build that predates the change
 - test the implementation's internals when a behaviour test exists
